@@ -1,0 +1,82 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Collage</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/collage.css') }}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/transitions.css') }}" media="all" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="{{ url_for('static', filename='js/jquery.collagePlus.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.removeWhitespace.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.collageCaption.js') }}"></script>
+  
+    <script type="text/javascript">
+
+    // All images need to be loaded for this plugin to work so
+    // we end up waiting for the whole window to load in this example
+    $(window).load(function () {
+        $(document).ready(function(){
+            collage();
+            $('.Collage').collageCaption();
+        });
+    });
+
+
+    // Here we apply the actual CollagePlus plugin
+    function collage() {
+        $('.Collage').removeWhitespace().collagePlus(
+            {
+                'fadeSpeed'     : 2000,
+                'targetHeight'  : 200,
+                'effect'        : 'effect-2',
+                'direction'     : 'vertical',
+                'allowPartialLastRow':true
+            }
+        );
+    };
+
+    // This is just for the case that the browser window is resized
+    var resizeTimer = null;
+    $(window).bind('resize', function() {
+        // hide all the images until we resize them
+        $('.Collage .Image_Wrapper').css("opacity", 0);
+        // set a timer to re-apply the plugin
+        if (resizeTimer) clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(collage, 200);
+    });
+
+    </script>
+</head>
+<body>
+<section class="Collage effect-parent">
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it"><a><img src="http://placehold.it/350x150/69D2E7/ffffff"></a></div>
+    <div class="Image_Wrapper"><a><img src="http://placehold.it/320x180/A7DBD8/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it"><a><img src="http://placehold.it/320x300/E0E4CC/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it"><a><img src="http://placehold.it/472x500/F38630/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it"><a><img src="http://placehold.it/540x360/FA6900/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it"><a><img src="http://placehold.it/800x600/ECD078/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it"><a><img src="http://placehold.it/400x120/D95B43/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it"><a><img src="http://placehold.it/300x300/C02942/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it"><a><img src="http://placehold.it/320x500/542437/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it"><a><img src="http://placehold.it/450x300/53777A/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it"><a><img src="http://placehold.it/350x150/69D2E7/ffffff"></a></div>
+    <div class="Image_Wrapper"><a><img src="http://placehold.it/320x180/A7DBD8/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it"><a><img src="http://placehold.it/320x300/E0E4CC/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it"><a><img src="http://placehold.it/472x500/F38630/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it"><a><img src="http://placehold.it/540x360/FA6900/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it"><a><img src="http://placehold.it/800x600/ECD078/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it"><a><img src="http://placehold.it/400x120/D95B43/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it"><a><img src="http://placehold.it/300x300/C02942/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it"><a><img src="http://placehold.it/320x500/542437/ffffff"></a></div>
+    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it"><a><img src="http://placehold.it/450x300/53777A/ffffff"></a></div>
+</section>
+
+</body>
+</html>
