@@ -60,15 +60,10 @@ def home():
 '''
 	The main route for the collage page
 '''
+#after user hits submit button. 
 @app.route('/location/<place>')
-def get_photos_for_location(place):
-	if(session.get('instagram_access_key') == None):
-		return redirect("/")
-	#Lets get info on myself the access_token holder
-	access_token = session['instagram_access_key']
-	r = requests.request("GET",'https://api.instagram.com/v1/users/self/?access_token=%s' % access_token)
-	return  render_template('home.html', user_data=r.json())
-
+def get_collage(place):
+    return render_template('collage.html')
 
 '''
 	Will return a list of image URLs from instagram given the name of a location
@@ -77,7 +72,8 @@ def get_photos_for_location(place):
 def get_instagram_photos():
 	if(session.get('instagram_access_key') == None):
 		return redirect("/")
-
+    #http://127.0.0.1:5000/location/instagram/Chicago/3
+    #place, num_photos, 
 	# Use Google Geocoding to convert place to lat and long coordinates
 	place = request.form['place']
 	location = requests.get(google_geocoding_url % place)
@@ -91,9 +87,6 @@ def get_instagram_photos():
 	return instagram_models.content
 
 
-@app.route('/collage')
-def get_collage():
-    return render_template('collage.html')
 
 if __name__ == '__main__':
 	app.run()
