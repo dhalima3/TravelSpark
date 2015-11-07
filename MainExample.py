@@ -59,7 +59,12 @@ def home():
 '''
 @app.route('/location/<place>')
 def get_photos_for_location(place):
-	return None
+	if(session.get('instagram_access_key') == None):
+		return redirect("/")
+	#Lets get info on myself the access_token holder
+	access_token = session['instagram_access_key']
+	r = requests.request("GET",'https://api.instagram.com/v1/users/self/?access_token=%s' % access_token)
+	return  render_template('home.html', user_data=r.json())
 
 
 '''
@@ -83,10 +88,8 @@ def get_instagram_photos():
 
 	num_photos = int(request.form['num_photos'])
 	photo_choices = []
-	for i in range(0, num_photos):
-
-
+	#for i in range(0, num_photos):
 
 
 if __name__ == '__main__':
-    app.run()
+	app.run()
