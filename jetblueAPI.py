@@ -1,10 +1,11 @@
 import csv
+import sys
 
 with open('jetblue.csv', 'rb') as jetbluecvs:
     reader = csv.reader(jetbluecvs)
-    expediaPackagePrice = []
-    jetbluePackagePrice = []
-    percentSavings = []
+    expediaPackagePrice = sys.maxint
+    jetbluePackagePrice = sys.maxint
+    percentSavings = sys.maxint
     out = open('jetblueresults', 'w')
     destination = ''
     destinationBefore = ''
@@ -13,17 +14,17 @@ with open('jetblue.csv', 'rb') as jetbluecvs:
         destination = row[1]
         if (destinationBefore == '' or destination == destinationBefore):
             destinationBefore = row[1]
-            expediaPackagePrice.append(float(row[6]))
-            jetbluePackagePrice.append(float(row[7]))
-            percentSavings.append(float(row[8][:-1]))
+            if (expediaPackagePrice > float(row[6])):
+                expediaPackagePrice = row[6]
+            if (jetbluePackagePrice > float(row[7])):
+                jetbluePackagePrice = row[7]
+            if (percentSavings > float(row[8][:-1])):
+                percentSavings = row[8]
         else:
-            averageExpediaPackagePrice = round(sum(expediaPackagePrice) / float(len(expediaPackagePrice)), 2)
-            averageJetbluePackagePrice = round(sum(jetbluePackagePrice) / float(len(jetbluePackagePrice)), 2)
-            averagePercentSavings = round(sum(percentSavings) / float(len(percentSavings)), 2)
-            out.write(' '.join([origin, destination, str(averageExpediaPackagePrice), str(averageJetbluePackagePrice), str(averagePercentSavings)]))
+            out.write(' '.join([origin, destination, str(expediaPackagePrice), str(jetbluePackagePrice), str(percentSavings)]))
             out.write("\n")
             destination = ''
             destinationBefore = ''
-            expediaPackagePrice[:] = []
-            jetbluePackagePrice[:] = []
-            percentSavings[:] = []
+            expediaPackagePrice = sys.maxint
+            jetbluePackagePrice = sys.maxint
+            percentSavings = sys.maxint
