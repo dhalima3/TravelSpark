@@ -57,23 +57,25 @@
 <body>
 <section class="Collage effect-parent">
     <!--Change urls to instagram-->
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago1.jpg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago2.jpg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago3.jpg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago4.jpeg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago5.jpg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago6.jpeg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago7.jpg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago8.jpg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago9.jpg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago10.jpg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago11.jpg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago12.jpg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago13.jpg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago14.jpeg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago15.jpg') }}"></a></div>
-    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename='img/chicago16.jpg') }}"></a></div>
-    <div class="Image_Wrapper" data-caption="This is some data <u>with</u>html in it"><a><img src="{{ url_for('static', filename='img/chicago17.jpg') }}"></a></div>
+    {% for post in photos_display %}
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper"><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    {% endfor %}
 </section>
 
 </body>
