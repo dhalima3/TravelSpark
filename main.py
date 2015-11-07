@@ -7,3 +7,10 @@ def hello_world():
 
 if __name__ == '__main__':
     app.run()
+
+@app.route('/index')
+def index():
+    user = {'nickname': 'Miguel'}  # fake user
+    return render_template('index.html',
+                           title='Home',
+                           user=user)

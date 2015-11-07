@@ -172,8 +172,19 @@ aside {
     }
 }
 
+<<<<<<< HEAD
 header {
   
+=======
+.header {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    text-align: center;
+    color: #fff;
+    background-image: url(../img/header.jpg);
+    background-position: center;
+>>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -181,7 +192,11 @@ header {
 }
 
 header .header-content {
+<<<<<<< HEAD
 
+=======
+    position: relative;
+>>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     width: 100%;
     padding: 100px 15px;
     text-align: center;
@@ -254,6 +269,10 @@ header .header-content .header-content-inner p {
 
 .portfolio-box {
     display: block;
+<<<<<<< HEAD
+=======
+    position: relative;
+>>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     margin: 0 auto;
     max-width: 650px;
 }
@@ -466,4 +485,8 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #222;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
