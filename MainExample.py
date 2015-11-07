@@ -5,6 +5,9 @@ import random
 from flask import Flask, request, redirect, session, url_for, render_template
 from flask.json import jsonify, dumps
 from requests_oauthlib import OAuth2Session
+import requests
+import json
+
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
@@ -49,6 +52,7 @@ def instagram_token_retrieval():
 '''
 @app.route('/home')
 def home():
+	#TODO: Put in Flickr APi for the home page. 
 	if(session.get('instagram_access_key') == None):
 		return redirect("/")
 	#Lets get info on myself the access_token holder
@@ -63,19 +67,28 @@ def home():
 #after user hits submit button. 
 @app.route('/location/<place>')
 def get_collage(place):
-    return render_template('collage.html')
+	headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+	payload = {'num_photos': 3, 'place': place}
+	url = 'http://127.0.0.1:5000/location/instagram/'+place
+	#print payload
+	response = requests.post(url, headers=headers)
+	print "RECIEVES"
+	print response.json()
+    	return render_template('collage.html', photos_display=response.json())
 
 '''
 	Will return a list of image URLs from instagram given the name of a location
 '''
-@app.route('/location/instagram', methods=["POST"])
-def get_instagram_photos():
+@app.route('/location/instagram/<place>', methods=["GET"])
+def get_instagram_photos(place):
+	print "hell"
 	if(session.get('instagram_access_key') == None):
+		print "REDIRECT"
 		return redirect("/")
     #http://127.0.0.1:5000/location/instagram/Chicago/3
     #place, num_photos, 
 	# Use Google Geocoding to convert place to lat and long coordinates
-	place = request.form['place']
+	print place
 	location = requests.get(google_geocoding_url % place)
 	location = location.json()
 	lat_coord = location.get("results")[0].get("geometry").get("location").get("lat")
