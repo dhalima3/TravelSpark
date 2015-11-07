@@ -6,7 +6,8 @@ from flask.json import jsonify
 from InstagramWrapper import InstagramWrapper
 from requests_oauthlib import OAuth2Session
 
-os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' # this lets my redirect_uri be a non secure (http) URL, otherwise OAuth restricts you to HTTPS
+# when we push to a server we'll obviously take this out.
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
