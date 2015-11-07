@@ -86,7 +86,9 @@ def get_instagram_photos():
 	instagram_models = requests.get(instagram_image_search_url, params=querys)
 	return instagram_models.content
 
-
+@app.route('/collage')
+def get_collage():
+    return render_template('collage.html')
 
 if __name__ == '__main__':
 	app.run()
