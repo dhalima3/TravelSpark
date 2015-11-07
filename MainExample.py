@@ -3,7 +3,7 @@ import os
 import time
 import random
 from flask import Flask, request, redirect, session, url_for, render_template
-from flask.json import jsonify
+from flask.json import jsonify, dumps
 from requests_oauthlib import OAuth2Session
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
@@ -18,7 +18,7 @@ instagram_client_id = "115a6c0fd0a64bccbf213e4eafec554a"
 instagram_client_secret = "72f3282930444d9e826e5f083ede32d1"
 instagram_authorization_base_url = "https://api.instagram.com/oauth/authorize"
 instagram_token_url = "https://api.instagram.com/oauth/access_token"
-instagram_image_search_url = "https://api.instagram.com/v1/locations/search"
+instagram_image_search_url = "https://api.instagram.com/v1/media/search"
 
 google_api_key = "AIzaSyCLehiRvLWhFXbwkI6zojampXcICC0-rMU"
 google_geocoding_url = "https://maps.googleapis.com/maps/api/geocode/json?address=%s"
@@ -26,6 +26,9 @@ google_geocoding_url = "https://maps.googleapis.com/maps/api/geocode/json?addres
 
 @app.route('/')
 def instagram_authorization():
+	if(session.get("instagram_access_key" != None)):
+		return redirect("/home")
+
 	oauth = OAuth2Session(instagram_client_id, redirect_uri="http://127.0.0.1:5000/callback")
 	authorization_url, state = oauth.authorization_url(instagram_authorization_base_url)
 
@@ -81,10 +84,7 @@ def get_instagram_photos():
 	querys = {"lat": lat_coord, "lng" : long_coord, "access_token" : session.get('instagram_access_key')}
 	instagram_models = requests.get(instagram_image_search_url, params=querys)
 
-	num_photos = int(request.form['num_photos'])
-	photo_choices = []
-	for i in range(0, num_photos):
-
+	return instagram_models.content
 
 
 
