@@ -3,7 +3,7 @@ import os
 import time
 import random
 from flask import Flask, request, redirect, session, url_for, render_template
-from flask.json import jsonify, dumps
+from flask.json import jsonify, dumps, loads
 from requests_oauthlib import OAuth2Session
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
@@ -82,9 +82,25 @@ def get_instagram_photos():
 	long_coord = location.get("results")[0].get("geometry").get("location").get("lng")
 
 	# Make the API call to get the Models
-	querys = {"lat": lat_coord, "lng" : long_coord, "access_token" : session.get('instagram_access_key')}
+	querys = {"lat": lat_coord, "lng" : long_coord,  "distance" : "5000" , "access_token": session.get('instagram_access_key')}
 	instagram_models = requests.get(instagram_image_search_url, params=querys)
-	return instagram_models.content
+	chosen_images = []
+
+	json_object = loads(instagram_models.text)
+	num_photos = int(request.form['num_photos'])
+	if len(json_object["data"]) > num_photos:
+		for i in range(0, num_photos):
+			current_images = random.randint(0, len(json_object) - 1)
+			chosen_images.append(json_object["data"][current_images]["images"])
+	else:
+		print len(json_object["data"])
+		print num_photos
+
+	print chosen_images
+	return dumps(chosen_images)			
+
+
+
 
 if __name__ == '__main__':
 	app.run()
