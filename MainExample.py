@@ -83,10 +83,11 @@ def get_instagram_photos():
 
 	num_photos = int(request.form['num_photos'])
 	photo_choices = []
-	for i in range(0, num_photos):
+        #for i in range(0, num_photos):
 
-
-
+@app.route('/collage')
+def get_collage():
+    return render_template('collage.html')
 
 if __name__ == '__main__':
     app.run()
