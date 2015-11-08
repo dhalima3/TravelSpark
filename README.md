@@ -10,3 +10,6 @@ Allowing the traveler to experience their destination before even arriving, is o
 Users can enter their desired city, and they will be showed a plethora of some of the best images from that location with their respective stories from people who have been there before. If you see pictures that you like, you can put it on a watch list. From the options of pictures that you select, we will curate a special package for you to visit these set places.
 
 Travel shouldn't be about prices. Travel should be about the people, the stories, the journey!
+
+TO USE: 
+Git clone this repo, and then start the server with "python MakeExample.lpy", and then open up your browser to http://127.0.0.1:5000. 
