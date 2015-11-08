@@ -18,6 +18,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+    <script src="http://code.jboxcdn.com/0.3.2/jBox.min.js"></script>
+    <link href="http://code.jboxcdn.com/0.3.2/jBox.css" rel="stylesheet">
 
     <script src="{{ url_for('static', filename='js/jquery.collagePlus.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery.removeWhitespace.js') }}"></script>
@@ -64,9 +66,8 @@
 <section class="Collage effect-parent">
 
     <!--Change urls to instagram-->
-
     {% for post in photos_display %}
-    <div class="Image_Wrapper" data-caption="Interested?"><a>
+    <div class="Image_Wrapper" data-caption="Interested? Click here!"><a>
      <a href="#popup" class="portfolio-link" data-toggle="modal">
      <img src="{{post.standard_resolution.url}}"></a>
      <</div>
@@ -91,9 +92,9 @@
                             <!-- Project Details Go Here -->
                             <h2 class="font-black">Ready to turn these pictures into your reality? </h2>
                          
-                            <p>Click below to scout out the best flights at the best prices.
-</p>
-                            <p></p>
+                            <p>Click below to scout out the best flight and hotel package at the best prices for {{place}}.</p>
+                            <p>{{ lowest_price }}</p>
+                            <p>{{ average_savings }}</p>
                              <a href="https://www.priceline.com/fly/#/search/JFK-SFO-20151108/1?input-arm-key=3E4B050A404B050A6sDzR9Q%3DmEufuov37AdClA5317&slice1-alts=LGA:EWR:SWF:HPN:ISP-SJC:OAK&country-code=US&v=ALLOW" class="btn">Continue</a>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
@@ -103,5 +104,21 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+
+        function openModal() {
+            var jbox = new jBox('Modal', {
+                attach: $('#myModal'),
+                width: 300,
+                height: 300,
+                title: 'Book your trip to {{place}}!',
+                overlay: false,
+                content: '<p>{{ lowest_price }}</p><p>{{ average_savings }}</p><button type=&quot;button&quot; class=&quot;btn btn-default btn-lg&quot;',
+                draggable: 'title'
+            });
+            jbox.open();
+        }
+
+    </script>
 </body>
 </html>
