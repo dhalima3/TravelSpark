@@ -98,8 +98,11 @@ input {
                 <hr>       
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
    
-            <input type="text" name='place' id = 'place1' placeholder="HELLO"/>
-        <input type="button" value='Search' class= "btn-primary " onClick='findLocation()'></a>
+          
+		 	<form class="submit" method="POST" action="">
+			    <input name='place'  class="location-enter" id ='place1' placeholder="Enter a location"/>
+			    <input type="submit" class= "btn-primary" value='Search'></a>
+		    </form>
 
      
         </div>
@@ -112,8 +115,10 @@ input {
                 <hr>       
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
    
-            <input name='place' type="text"  id = 'place2'  placeholder="Find your next vacation..."value=""/>
-        <input type="button" class= "btn-primary " value='Search' onClick='findLocation()'></a>
+		 	<form class="submit" method="POST" action="">
+			    <input name='place'  class="location-enter" id ='place2' placeholder="Enter a location"/>
+			    <input type="submit" class= "btn-primary" value='Search'></a>
+		    </form>
      
         </div>
       </div>
