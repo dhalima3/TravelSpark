@@ -83,13 +83,43 @@ def get_collage(place):
 	#parts.geturl()
 	#print payload
 	response = get_instagram_photos(place)
+
 	response2= get_google_images(place)
 	print "RECIEVES"
 	print response
 	print "GOOGLE"
 	print response2
-    	return render_template('collage.html', photos_display=response, photos_google=response2)
+        place = place.replace("+", " ")
+        airport = get_airport(place)
+        price = "Packages for Jetblue start as low as " + str(get_lowest_price(place)) + ". "
+        average_savings = "And save up to " + str(get_savings_percentage(place)) + " compared to Expedia! Wow Jetblue is so awesome!"
+    	return render_template('collage.html', place=place, photos_display=response, photos_google= response2, lowest_price=price, average_savings=average_savings, airport=airport)
 
+def get_airport(place):
+    f = open('./jetblue/jetblueresults', 'r')
+    for line in f:
+        lineList = line.split(',')
+        destination = lineList[2].lower()
+        if (destination == place.lower()):
+            return lineList[1]
+
+
+def get_savings_percentage(place):
+    f = open('./jetblue/jetblueresults', 'r')
+    for line in f:
+        lineList = line.split(',')
+        destination = lineList[2].lower()
+        if (destination == place.lower()):
+            return lineList[5][:-1]
+
+def get_lowest_price(place):
+    f = open('./jetblue/jetblueresults', 'r')
+    for line in f:
+        lineList = line.split(',')
+        destination = lineList[2].lower()
+        if (destination == place.lower()):
+            return lineList[4]
+        
 '''
 	Will return a list of image URLs from instagram given the name of a location
 '''
@@ -102,7 +132,7 @@ def get_instagram_photos(place):
     #http://127.0.0.1:5000/location/instagram/Chicago/3
     #place, num_photos, 
 	# Use Google Geocoding to convert place to lat and long coordinates
-	num_photos = 30;
+	num_photos = 25;
 	print place
 	location = requests.get(google_geocoding_url % place)
 	location = location.json()
