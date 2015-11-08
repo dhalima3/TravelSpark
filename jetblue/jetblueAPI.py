@@ -5,7 +5,7 @@ with open('jetblue.csv', 'rb') as jetbluecvs:
     reader = csv.reader(jetbluecvs)
     expediaPackagePrice = sys.maxint
     jetbluePackagePrice = sys.maxint
-    percentSavings = sys.maxint
+    percentSavings = 0
     out = open('jetblueresults', 'w')
     destination = ''
     destinationBefore = ''
@@ -18,7 +18,7 @@ with open('jetblue.csv', 'rb') as jetbluecvs:
                 expediaPackagePrice = row[6]
             if (jetbluePackagePrice > float(row[7])):
                 jetbluePackagePrice = row[7]
-            if (percentSavings > float(row[8][:-1])):
+            if (percentSavings < float(row[8][:-1])):
                 percentSavings = row[8]
         else:
             out.write(' '.join([origin, destination, str(expediaPackagePrice), str(jetbluePackagePrice), str(percentSavings)]))
@@ -27,4 +27,4 @@ with open('jetblue.csv', 'rb') as jetbluecvs:
             destinationBefore = ''
             expediaPackagePrice = sys.maxint
             jetbluePackagePrice = sys.maxint
-            percentSavings = sys.maxint
+            percentSavings = 0
