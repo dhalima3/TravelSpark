@@ -71,7 +71,7 @@ def home():
 	The main route for the collage page
 '''
 #after user hits submit button. 
-@app.route('/location/<place>')
+@app.route('/location/<place>', methods=["POST", "GET"])
 def get_collage(place):
 	#headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 	#payload = {'num_photos': 3, 'place': place}
