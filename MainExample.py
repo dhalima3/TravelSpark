@@ -84,7 +84,9 @@ def get_collage(place):
 	#print payload
 	response = get_instagram_photos(place)
 
-	response2= get_google_images(place)
+	response2= json.loads(get_google_images(place))
+	response3= json.loads(get_google_images2(place))
+        print response2
 	print "RECIEVES"
 	print response
 	print "GOOGLE"
@@ -93,7 +95,7 @@ def get_collage(place):
         airport = get_airport(place)
         price = "Packages for Jetblue start as low as " + str(get_lowest_price(place)) + ". "
         average_savings = "And save up to " + str(get_savings_percentage(place)) + " compared to Expedia! Wow Jetblue is so awesome!"
-    	return render_template('collage.html', place=place, photos_display=response, photos_google= response2, lowest_price=price, average_savings=average_savings, airport=airport)
+    	return render_template('collage.html', place=place, photos_display=response, photos_google= response2, photos_google2 = response3, lowest_price=price, average_savings=average_savings, airport=airport)
 
 def get_airport(place):
     f = open('./jetblue/jetblueresults', 'r')
@@ -164,7 +166,7 @@ def get_instagram_photos(place):
 
 def get_google_images(place):
     print "MOVING ON TO GOOGLE"
-    url = ('https://ajax.googleapis.com/ajax/services/search/images?' + 'v=1.0&q='+place)
+    url = ('https://ajax.googleapis.com/ajax/services/search/images?' + 'v=1.0&q='+place+'&rsz=8')
     print url
     req = urllib2.Request(url, headers={'accept': '*/*'})
     response = urllib2.urlopen(req)
@@ -177,6 +179,20 @@ def get_google_images(place):
     print ret
     return ret
 
+def get_google_images2(place):
+    print "MOVING ON TO GOOGLE"
+    url = ('https://ajax.googleapis.com/ajax/services/search/images?' + 'v=1.0&q='+place+'&rsz=8&start=9')
+    print url
+    req = urllib2.Request(url, headers={'accept': '*/*'})
+    response = urllib2.urlopen(req)
+    print "GOOGLE RESPONSE"
+    print type(response)
+    print "TYPE OF RESPONSE.READ"    
+    ret = response.read()
+    print len(ret)
+    print "RET"
+    print ret
+    return ret
 
 if __name__ == '__main__':
 	app.run()
