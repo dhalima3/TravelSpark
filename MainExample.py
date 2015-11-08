@@ -126,6 +126,7 @@ def get_lowest_price(place):
 
 def get_instagram_photos(place):
 	print "hell"
+	print place
 	if(session.get('instagram_access_key') == None):
 		print "REDIRECT"
 		return redirect("/")
@@ -164,7 +165,7 @@ def get_instagram_photos(place):
 
 def get_google_images(place):
     print "MOVING ON TO GOOGLE"
-    url = ('https://ajax.googleapis.com/ajax/services/search/images?' + 'v=1.0&q='+place)
+    url = ('https://ajax.googleapis.com/ajax/services/search/images?' + 'v=1.0&q='+ urllib2.quote(place))
     print url
     req = urllib2.Request(url, headers={'accept': '*/*'})
     response = urllib2.urlopen(req)

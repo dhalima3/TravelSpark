@@ -97,7 +97,7 @@ input {
 	        	 <input name='place'  class="location-enter" id ='place1' placeholder="Enter a location"/>
 	        	 <input type="submit" value='Search'></a>
 	        </form>
-	        <h1>WeTravel</h1>
+	        <h1>TravelSpark</h1>
 	        <hr>       
         </div>
       </div>
@@ -109,7 +109,7 @@ input {
 			    <input name='place'  class="location-enter" id ='place2' placeholder="Enter a location"/>
 			    <input type="submit" value='Search'></a>
 		    </form>
-		    <h1>WeTravel</h1>
+		    <h1>TravelSpark</h1>
             <hr>     
         </div>
       </div>
@@ -121,7 +121,7 @@ input {
 			    <input name='place'  class="location-enter" id ='place3' placeholder="Enter a location"/>
 			    <input type="submit" value='Search'></a>
 		    </form>
-		    <h1>WeTravel</h1>
+		    <h1>TravelSpark</h1>
             <hr>     
         </div>
       </div>
@@ -133,7 +133,7 @@ input {
 			    <input name='place' class="location-enter" id ='place4' placeholder="Enter a location"/>
 			    <input type="submit" value='Search'></a>
 		    </form>
-		    <h1>WeTravel</h1>
+		    <h1>TravelSpark</h1>
             <hr>     
         </div>
       </div>
@@ -242,6 +242,7 @@ input {
 		var val = "";
 		$('.location-enter').each(function(){
 			if($(this).val() != "" && $(this).val() != undefined){
+				console.log($(this).val());
 				val = $(this).val();
 			}
 		})
