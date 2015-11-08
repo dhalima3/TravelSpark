@@ -89,52 +89,67 @@ input {
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
 
-      <div class="item active">
-        <img src= "{{ url_for('static', filename ='img/header.jpg') }}"  alt="Chania" width="460" height="345">
-	        <div class="carousel-caption">
-	        <p>Welcome {{user_data["data"]["full_name"]}}</p>
-	        <form class="submit" method="POST" action="">
-	        	 <input name='place'  class="location-enter" id ='place1' placeholder="Enter a location"/>
-	        	 <input type="submit" value='Search'></a>
-	        </form>
-	        <h1>TravelSpark</h1>
-	        <hr>       
+
+      <div class="item ">
+        <img src= "{{ url_for('static', filename ='img/header1.jpg') }}"  alt="Chania" width="460" height="345">
+        <div class="carousel-caption">
+         
+                 <h1>TravelSpark</h1>
+                <hr>       
+        <p>Welcome {{user_data["data"]["full_name"]}}</p>
+   
+          
+		 	<form class="submit" method="POST" action="">
+			    <input name='place'  class="location-enter" id ='place1' placeholder="Enter a location"/>
+			    <input type="submit" class= "btn-primary" value='Search'></a>
+		    </form>
+
+     
         </div>
       </div>
 
-      <div class="item">
-        <img src= "{{ url_for('static', filename ='img/header.jpg') }}" alt="Chania" width="460" height="345">
+      <div class="item active">
+        <img src= "{{ url_for('static', filename ='img/header2.jpg') }}" alt="Chania" width="460" height="345">
         <div class="carousel-caption">
+                <h1>TravelSpark</h1>
+                <hr>       
+        <p>Welcome {{user_data["data"]["full_name"]}}</p>
+   
 		 	<form class="submit" method="POST" action="">
 			    <input name='place'  class="location-enter" id ='place2' placeholder="Enter a location"/>
-			    <input type="submit" value='Search'></a>
+			    <input type="submit" class= "btn-primary" value='Search'></a>
 		    </form>
-		    <h1>TravelSpark</h1>
-            <hr>     
+     
         </div>
       </div>
     
       <div class="item">
-        <img src= "{{ url_for('static', filename ='img/header.jpg') }}" alt="Chania" width="460" height="345">
+        <img src= "{{ url_for('static', filename ='img/header3.jpg') }}" alt="Chania" width="460" height="345">
         <div class="carousel-caption">
+         <h1>TravelSpark</h1>
+         <hr>   
+                 <p>Welcome {{user_data["data"]["full_name"]}}</p>
+
 		 	<form class="submit" method="POST" action="">
 			    <input name='place'  class="location-enter" id ='place3' placeholder="Enter a location"/>
-			    <input type="submit" value='Search'></a>
+			    <input type="submit" class= "btn-primary" value='Search'></a>
 		    </form>
-		    <h1>TravelSpark</h1>
-            <hr>     
+		   
+              
         </div>
       </div>
 
       <div class="item">
-        <img src= "{{ url_for('static', filename ='img/header.jpg') }}" alt="Flower" width="460" height="345">
+        <img src= "{{ url_for('static', filename ='img/header4.jpg') }}" alt="Flower" width="460" height="345">
         <div class="carousel-caption">
+        <h1>TravelSpark</h1>
+         <hr>   
+                 <p>Welcome {{user_data["data"]["full_name"]}}</p>
 		 	<form class="submit" method="POST" action="">
 			    <input name='place' class="location-enter" id ='place4' placeholder="Enter a location"/>
-			    <input type="submit" value='Search'></a>
+			    <input type="submit" class= "btn-primary " value='Search'></a>
 		    </form>
-		    <h1>TravelSpark</h1>
-            <hr>     
+		       
         </div>
       </div>
   
@@ -242,7 +257,6 @@ input {
 		var val = "";
 		$('.location-enter').each(function(){
 			if($(this).val() != "" && $(this).val() != undefined){
-				console.log($(this).val());
 				val = $(this).val();
 			}
 		})
