@@ -9,7 +9,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-     <title>WeTravel</title>
+     <title>TravelSpark</title>
 
     <!-- Bootstrap Core CSS -->
 
@@ -37,6 +37,9 @@
       width: 70%;
       margin: auto;
   }
+  .red {
+  	color=#FF0000; 
+  }
   form {
                 margin:50px auto;
 }
@@ -44,11 +47,14 @@
                 font-family:Helvetica Neue;
                 font-weight:bold;
 }
+input {
+	color: black;
+}
 .search {
                 padding:8px 15px;
                 background:rgba(50, 50, 50, 0.2);
                 border:0px solid #dbdbdb;
-                color:#000;
+                background-color:#fff;
 }
 .button {
                 position:relative;
@@ -88,11 +94,11 @@
         <img src= "{{ url_for('static', filename ='img/header.jpg') }}"  alt="Chania" width="460" height="345">
         <div class="carousel-caption">
          
-                 <h1>WeTravel</h1>
+                 <h1>TravelSpark</h1>
                 <hr>       
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
    
-            <input name='place' id = 'place1' placeholder="HELLO"/>
+            <input type="text" name='place' id = 'place1' placeholder="HELLO"/>
         <input type="button" value='Search' onClick='findLocation()'></a>
      
         </div>
@@ -105,8 +111,8 @@
                 <hr>       
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
    
-            <input name='place' id = 'place2'  placeholder="Find your next vacation..."value=""/>
-        <input type="button" value='Search' onClick='findLocation()'></a>
+            <input name='place' type="text"  id = 'place2'  placeholder="Find your next vacation..."value=""/>
+        <input type="button" class= "btn-primary " value='Search' onClick='findLocation()'></a>
      
         </div>
       </div>
@@ -118,8 +124,8 @@
                 <hr>       
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
  
-            <input name='place1'  id = 'place3' placeholder="Find your next vacation..."value=""/>
-        <input type="button" value='Search' onClick='findLocation()'></a>
+            <input name='place1' type="text"  id = 'place3' placeholder="Find your next vacation..."value=""/>
+        <input type="button" class= "btn-primary " value='Search' onClick='findLocation()'></a>
         </div>
       </div>
 
@@ -127,12 +133,12 @@
         <img src= "{{ url_for('static', filename ='img/header.jpg') }}" alt="Flower" width="460" height="345">
         <div class="carousel-caption">
          
-                <h1>WeTravel</h1>
+                <h1>TravelSpark</h1>
                 <hr>       
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
    
-            <input name='place'  id = 'place4' placeholder="Find your next vacation..."value=""/>
-        <input type="button" value='Search' onClick='findLocation()'></a>
+            <input name='place' type="text"  id = 'place4' placeholder="Find your next vacation..."value=""/>
+        <input type="button" class= "btn-primary " value='Search' onClick='findLocation()'></a>
      
         </div>
       </div>
@@ -259,7 +265,7 @@
 </section>
    
   <footer class="text-center">
-  <p>Copyright @ 2015 WeDo</p>
+  <p>Copyright @ 2015 TravelSpark</p>
 </footer>
 
     <!-- jQuery -->
