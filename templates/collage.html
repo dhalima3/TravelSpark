@@ -13,6 +13,12 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/bootstrap.css') }}" media="all" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
     <script src="{{ url_for('static', filename='js/jquery.collagePlus.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery.removeWhitespace.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery.collageCaption.js') }}"></script>
@@ -60,10 +66,42 @@
     <!--Change urls to instagram-->
 
     {% for post in photos_display %}
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{post.standard_resolution.url}}"></a></div>
+    <div class="Image_Wrapper" data-caption="Interested?"><a>
+     <a href="#popup" class="portfolio-link" data-toggle="modal">
+     <img src="{{post.standard_resolution.url}}"></a>
+     <</div>
+    </a>
     {% endfor %}
 
 </section>
+
+<!-- The modal pop up -->
+  <div class="portfolio-modal modal fade" id="popup" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2 class="font-black">Ready to turn these pictures into your reality? </h2>
+                         
+                            <p>Click below to scout out the best flights at the best prices.
+</p>
+                            <p></p>
+                             <a href="https://www.priceline.com/fly/#/search/JFK-SFO-20151108/1?input-arm-key=3E4B050A404B050A6sDzR9Q%3DmEufuov37AdClA5317&slice1-alts=LGA:EWR:SWF:HPN:ISP-SJC:OAK&country-code=US&v=ALLOW" class="btn">Continue</a>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

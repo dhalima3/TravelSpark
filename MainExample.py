@@ -7,6 +7,10 @@ from flask.json import jsonify, dumps, loads
 from requests_oauthlib import OAuth2Session
 import requests
 import json
+import urllib
+import mechanize
+from bs4 import BeautifulSoup
+from urlparse import urlparse
 
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
@@ -93,7 +97,7 @@ def get_instagram_photos(place):
     #http://127.0.0.1:5000/location/instagram/Chicago/3
     #place, num_photos, 
 	# Use Google Geocoding to convert place to lat and long coordinates
-	num_photos = 19;
+	num_photos = 30;
 	print place
 	location = requests.get(google_geocoding_url % place)
 	location = location.json()
@@ -103,7 +107,7 @@ def get_instagram_photos(place):
 	print lat_coord
 	print long_coord
 	# Make the API call to get the Models
-	querys = {"lat": lat_coord, "lng" : long_coord,  "distance" : "10000" , "access_token": session.get('instagram_access_key')}
+	querys = {"lat": lat_coord, "lng" : long_coord, "min_timestamp": "1262304000", "max_timestamp":"1446940800", "distance" : "10000" , "access_token": session.get('instagram_access_key')}
 	instagram_models = requests.get(instagram_image_search_url, params=querys)
 	chosen_images = []
 
@@ -113,10 +117,34 @@ def get_instagram_photos(place):
 		for i in range(0, num_photos): 
 			chosen_images.append(json_object["data"][i]["images"])
 	else:
+		for i in range(0, len(json_object["data"])):
+			chosen_images.append(json_object["data"][i]["images"])
 		print len(json_object["data"])
 		print num_photos
 
 	print chosen_images
+	try:
+		htmltext=urllib.urlopen("https://www.google.com/search?tbm=isch&q="+place+"&cad=h");
+		img_urls= []
+		soup = BeautifulSoup(htmltext)
+		print soup
+		results = soup.find_all('a')
+		print "RESULTS DATA SCRAPE"
+		print results 
+		for r in results:
+			try:
+				if "ingres?ingurl" in r['href']:
+					img_urls.append(r['href']) 
+		#	except:
+		#		print "ERROR"
+		#for i in len(img_urls):
+		#	refer_url = urlparse(str(img_urls[i]))
+		#	chosen_images.append(refer_url.query.split('&')[0].replace("imgurl=",""))
+			except:
+				print "Exception"
+	except:
+		print "ERRO"
+
 	return chosen_images		
 
 
