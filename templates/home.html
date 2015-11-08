@@ -30,6 +30,7 @@
 
     <!-- Custom CSS -->
  </script>
+
   <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
@@ -47,6 +48,7 @@
                 padding:8px 15px;
                 background:rgba(50, 50, 50, 0.2);
                 border:0px solid #dbdbdb;
+                color:#000;
 }
 .button {
                 position:relative;
@@ -90,8 +92,8 @@
                 <hr>       
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
    
-            <input name='place' id = 'place1' placeholder="Find your next vacation..."value=""/>
-        <input type="button" value='Search' onClick='findLocation()'></A>
+            <input name='place' id = 'place1' placeholder="HELLO"/>
+        <input type="button" value='Search' onClick='findLocation()'></a>
      
         </div>
       </div>
@@ -104,7 +106,7 @@
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
    
             <input name='place' id = 'place2'  placeholder="Find your next vacation..."value=""/>
-        <input type="button" value='Search' onClick='findLocation()'></A>
+        <input type="button" value='Search' onClick='findLocation()'></a>
      
         </div>
       </div>
@@ -117,7 +119,7 @@
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
  
             <input name='place1'  id = 'place3' placeholder="Find your next vacation..."value=""/>
-        <input type="button" value='Search' onClick='findLocation()'></A>
+        <input type="button" value='Search' onClick='findLocation()'></a>
         </div>
       </div>
 
@@ -130,7 +132,7 @@
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
    
             <input name='place'  id = 'place4' placeholder="Find your next vacation..."value=""/>
-        <input type="button" value='Search' onClick='findLocation()'></A>
+        <input type="button" value='Search' onClick='findLocation()'></a>
      
         </div>
       </div>
@@ -258,19 +260,25 @@
     <!-- Bootstrap Core JavaScript -->
 
     <!-- Plugin JavaScript -->
+  <script type="text/javascript">
+  
+    function findLocation() {
+	console.log("HERE"); 
+	var place = $('#place1').val(); 
+	console.log(place)
+	console.log("HELLO");
+window.location.replace("http://127.0.0.1:5000/location/"+place); 
+console.log(window.location); 
+    	}
+
+    </script>
     <script src="{{ url_for('static', filename ='js/jquery.easing.min.js') }}"></script>
     <script src="{{ url_for('static', filename ='js/jquery.fittext.js') }}"></script>
     <script src="{{ url_for('static', filename ='js/wow.min.js') }}"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ url_for('static', filename ='js/creative.js') }}"></script>
-    <script type="text/javascript">
-    	function findLocation() {
-    		console.log("HERE"); 
-    		var place = document.getElementById('place1')
-    		console.log("What?"+place); 
-    	}
-    </script>
+   
 
 </body>
 
