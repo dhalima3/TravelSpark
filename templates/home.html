@@ -273,7 +273,18 @@
   
     function findLocation() {
 	console.log("HERE"); 
-	var place = $('#place1').val(); 
+	var place ='';
+	if( $('#place1').val() != ''){
+		 place = $('#place1').val(); 
+	}
+	else if($('#place2').val() != ''){
+		 place = $('#place2').val(); 
+	}else if($('#place3').val() != ''){
+		 place = $('#place3').val(); 
+	}
+	else if($('#place4').val() != ''){
+		 place = $('#place4').val(); 
+	}
 	console.log(place)
 	console.log("HELLO");
 window.location.replace("http://127.0.0.1:5000/location/"+place); 

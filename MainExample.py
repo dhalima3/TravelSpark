@@ -7,10 +7,12 @@ from flask.json import jsonify, dumps, loads
 from requests_oauthlib import OAuth2Session
 import requests
 import json
-import urllib
+import urllib2
 import mechanize
 from bs4 import BeautifulSoup
 from urlparse import urlparse
+from apiclient.discovery import build
+
 
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
@@ -81,20 +83,13 @@ def get_collage(place):
 	#parts.geturl()
 	#print payload
 	response = get_instagram_photos(place)
-        price = "Fares as low as " + str(get_lowest_price(place))
+	response2= get_google_images(place)
 	print "RECIEVES"
 	print response
-    	return render_template('collage.html', photos_display=response, lowest_price=price)
+	print "GOOGLE"
+	print response2
+    	return render_template('collage.html', photos_display=response, photos_google=response2)
 
-def get_lowest_price(place):
-    f = open('./jetblue/jetblueresults', 'r')
-    place = place.lower().replace("+", " ")
-    for line in f:
-        lineList = line.split(',')
-        destination = lineList[2].lower()
-        if (destination == place.lower()):
-            return lineList[4]
-        
 '''
 	Will return a list of image URLs from instagram given the name of a location
 '''
@@ -133,31 +128,24 @@ def get_instagram_photos(place):
 		print num_photos
 
 	print chosen_images
-	try:
-		htmltext=urllib.urlopen("https://www.google.com/search?tbm=isch&q="+place+"&cad=h");
-		img_urls= []
-		soup = BeautifulSoup(htmltext)
-		print soup
-		results = soup.find_all('a')
-		print "RESULTS DATA SCRAPE"
-		print results 
-		for r in results:
-			try:
-				if "ingres?ingurl" in r['href']:
-					img_urls.append(r['href']) 
-		#	except:
-		#		print "ERROR"
-		#for i in len(img_urls):
-		#	refer_url = urlparse(str(img_urls[i]))
-		#	chosen_images.append(refer_url.query.split('&')[0].replace("imgurl=",""))
-			except:
-				print "Exception"
-	except:
-		print "ERRO"
+
 
 	return chosen_images		
 
-
+def get_google_images(place):
+    print "MOVING ON TO GOOGLE"
+    url = ('https://ajax.googleapis.com/ajax/services/search/images?' + 'v=1.0&q='+place)
+    print url
+    req = urllib2.Request(url, headers={'accept': '*/*'})
+    response = urllib2.urlopen(req)
+    print "GOOGLE RESPONSE"
+    print type(response)
+    print "TYPE OF RESPONSE.READ"    
+    ret = response.read()
+    print len(ret)
+    print "RET"
+    print ret
+    return ret
 
 
 if __name__ == '__main__':
