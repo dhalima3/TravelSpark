@@ -82,11 +82,21 @@ def get_collage(place):
 	#print payload
 	response = get_instagram_photos(place)
         place = place.replace("+", " ")
-        price = "Packages as low as " + str(get_lowest_price(place)) + ". "
-        average_savings = "And save up to " + str(get_savings_percentage(place)) + " compared to Expedia!"
+        airport = get_airport(place)
+        price = "Packages for Jetblue start as low as " + str(get_lowest_price(place)) + ". "
+        average_savings = "And save up to " + str(get_savings_percentage(place)) + " compared to Expedia! Wow Jetblue is so awesome!"
 	print "RECIEVES"
 	print response
-    	return render_template('collage.html', place=place, photos_display=response, lowest_price=price, average_savings=average_savings)
+    	return render_template('collage.html', place=place, photos_display=response, lowest_price=price, average_savings=average_savings, airport=airport)
+
+def get_airport(place):
+    f = open('./jetblue/jetblueresults', 'r')
+    for line in f:
+        lineList = line.split(',')
+        destination = lineList[2].lower()
+        if (destination == place.lower()):
+            return lineList[1]
+
 
 def get_savings_percentage(place):
     f = open('./jetblue/jetblueresults', 'r')
