@@ -60,23 +60,7 @@
     <!--Change urls to instagram-->
 
     {% for post in photos_display %}
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
-    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{ url_for('static', filename= post.standard_resolution.url) }}"></a></div>
+    <div class="Image_Wrapper" data-caption="Fares as low as "><a><img src="{{post.standard_resolution.url}}"></a></div>
     {% endfor %}
 
 </section>

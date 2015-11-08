@@ -67,8 +67,8 @@ def home():
 #after user hits submit button. 
 @app.route('/location/<place>')
 def get_collage(place):
-	headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-	payload = {'num_photos': 3, 'place': place}
+	#headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+	#payload = {'num_photos': 3, 'place': place}
 	url = 'http://127.0.0.1:5000/location/instagram/'+place
 	#import urlparse
 	#url = 'http://127.0.0.1:5000/location/instagram/holder'
@@ -76,15 +76,15 @@ def get_collage(place):
 	#parts = parts._replace(path=)
 	#parts.geturl()
 	#print payload
-	response = requests.post(url, headers=headers)
+	response = get_instagram_photos(place)
 	print "RECIEVES"
-	print response.json()
-    	return render_template('collage.html', photos_display=response.json())
+	print response
+    	return render_template('collage.html', photos_display=response)
 
 '''
 	Will return a list of image URLs from instagram given the name of a location
 '''
-@app.route('/location/instagram/<place>', methods=["GET"])
+
 def get_instagram_photos(place):
 	print "hell"
 	if(session.get('instagram_access_key') == None):
@@ -93,29 +93,31 @@ def get_instagram_photos(place):
     #http://127.0.0.1:5000/location/instagram/Chicago/3
     #place, num_photos, 
 	# Use Google Geocoding to convert place to lat and long coordinates
+	num_photos = 19;
 	print place
 	location = requests.get(google_geocoding_url % place)
 	location = location.json()
+	print location
 	lat_coord = location.get("results")[0].get("geometry").get("location").get("lat")
 	long_coord = location.get("results")[0].get("geometry").get("location").get("lng")
-
+	print lat_coord
+	print long_coord
 	# Make the API call to get the Models
-	querys = {"lat": lat_coord, "lng" : long_coord,  "distance" : "5000" , "access_token": session.get('instagram_access_key')}
+	querys = {"lat": lat_coord, "lng" : long_coord,  "distance" : "10000" , "access_token": session.get('instagram_access_key')}
 	instagram_models = requests.get(instagram_image_search_url, params=querys)
 	chosen_images = []
 
-	json_object = loads(instagram_models.text)
-	num_photos = int(request.form['num_photos'])
+	json_object = loads(instagram_models.text) 
+	print json_object
 	if len(json_object["data"]) > num_photos:
-		for i in range(0, num_photos):
-			current_images = random.randint(0, len(json_object) - 1)
-			chosen_images.append(json_object["data"][current_images]["images"])
+		for i in range(0, num_photos): 
+			chosen_images.append(json_object["data"][i]["images"])
 	else:
 		print len(json_object["data"])
 		print num_photos
 
 	print chosen_images
-	return dumps(chosen_images)			
+	return chosen_images		
 
 
 
