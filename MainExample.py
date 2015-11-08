@@ -70,6 +70,11 @@ def get_collage(place):
 	headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 	payload = {'num_photos': 3, 'place': place}
 	url = 'http://127.0.0.1:5000/location/instagram/'+place
+	#import urlparse
+	#url = 'http://127.0.0.1:5000/location/instagram/holder'
+	#parts = urlparse.urlparse(url)
+	#parts = parts._replace(path=)
+	#parts.geturl()
 	#print payload
 	response = requests.post(url, headers=headers)
 	print "RECIEVES"

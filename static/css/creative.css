@@ -478,6 +478,7 @@ img::selection {
     background: 0 0;
 }
 
+
 img::-moz-selection {
     color: #fff;
     background: 0 0;

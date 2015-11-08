@@ -3,16 +3,17 @@
   <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
      <title>WeTravel</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='css/bootstrap.min.css') }}"  type="text/css">
 
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -20,21 +21,42 @@
      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/creative.css') }}" media="all" />s
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/creative.css') }}" media="all" />
+  <link rel="stylesheet" href="{{ url_for('static', filename ='font-awesome/css/font-awesome.min.css') }}"  type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename ='css/animate.min.css') }}"  type="text/css">
+
+    <!-- Custom CSS -->
+ </script>
   <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
       width: 70%;
       margin: auto;
   }
+  form {
+                margin:50px auto;
+}
+::-webkit-input-placeholder { /* For WebKit browsers */
+                font-family:Helvetica Neue;
+                font-weight:bold;
+}
+.search {
+                padding:8px 15px;
+                background:rgba(50, 50, 50, 0.2);
+                border:0px solid #dbdbdb;
+}
+.button {
+                position:relative;
+                padding:6px 15px;
+                left:-8px;
+                border:2px solid #207cca;
+                background-color:#207cca;
+                color:#fafafa;
+}
+.butt
   </style>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
   <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
@@ -63,40 +85,38 @@
         <img src= "{{ url_for('static', filename ='img/header.jpg') }}"  alt="Chania" width="460" height="345">
         <div class="carousel-caption">
          
-                <h1>WeTravel</h1>
+                 <h1>WeTravel</h1>
                 <hr>       
-        <p>Hi I'm {{user_data["data"]["full_name"]}}</p>
-        <form method="POST" action="" }}>
-            <input name='place' value=""/>
-            <input type="submit">
-        </form>
+        <p>Welcome {{user_data["data"]["full_name"]}}</p>
+   
+            <input name='place' id = 'place1' placeholder="Find your next vacation..."value=""/>
+        <input type="button" value='Search' onClick='findLocation()'></A>
+     
         </div>
       </div>
 
       <div class="item active">
         <img src= "{{ url_for('static', filename ='img/header.jpg') }}" alt="Chania" width="460" height="345">
         <div class="carousel-caption">
-          
                 <h1>WeTravel</h1>
                 <hr>       
-        <p>Hi I'm {{user_data["data"]["full_name"]}}</p>
-        <form method="POST" action="">
-            <input name='place' value=""/>
-            <input type="submit">
-        </form>
+        <p>Welcome {{user_data["data"]["full_name"]}}</p>
+   
+            <input name='place' id = 'place1'  placeholder="Find your next vacation..."value=""/>
+        <input type="button" value='Search' onClick='findLocation()'></A>
+     
         </div>
       </div>
     
       <div class="item">
         <img src= "{{ url_for('static', filename ='img/header.jpg') }}" alt="Chania" width="460" height="345">
         <div class="carousel-caption">
-                <h1>WeTravel</h1>
+                     <h1>WeTravel</h1>
                 <hr>       
-        <p>Hi I'm {{user_data["data"]["full_name"]}}</p>
-        <form method="POST" action="">
-            <input name='place' value=""/>
-            <input type="submit">
-        </form>
+        <p>Welcome {{user_data["data"]["full_name"]}}</p>
+ 
+            <input name='place1'  id = 'place1' placeholder="Find your next vacation..."value=""/>
+        <input type="button" value='Search' onClick='findLocation()'></A>
         </div>
       </div>
 
@@ -106,11 +126,11 @@
          
                 <h1>WeTravel</h1>
                 <hr>       
-        <p>Hi I'm {{user_data["data"]["full_name"]}}</p>
-        <form method="POST" action="">
-            <input name='place' value=""/>
-            <input type="submit">
-        </form>
+        <p>Welcome {{user_data["data"]["full_name"]}}</p>
+   
+            <input name='place'  id = 'place1' placeholder="Find your next vacation..."value=""/>
+        <input type="button" value='Search' onClick='findLocation()'></A>
+     
         </div>
       </div>
   
@@ -196,7 +216,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="#" class="portfolio-box">
-                        <img src= "{{ url_for('static', filename ='img/portfolio/1.jpg') }}" class="img-responsive" alt="">
+                        <img src= "{{ url_for('static', filename ='img/header.jpg') }}" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -231,18 +251,25 @@
    
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src= "{{ url_for('static', filename ='js/jquery.js') }}"></script>
+<span class="highlight"><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script></span
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename ='js/bootstrap.min.js') }}"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="{{ url_for('static', filename ='js/jquery.easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename ='js/jquery.fittext.js') }}"></script>
+    <script src="{{ url_for('static', filename ='js/wow.min.js') }}"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/creative.js"></script>
+    <script src="{{ url_for('static', filename ='js/creative.js') }}"></script>
+   <!-- <script type="text/javascript">
+    	function findLocation() {
+    		var place = document.getElementById('')
+    		print place; 
+    	}
+    </script>-->
 
 </body>
 

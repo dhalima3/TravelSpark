@@ -60,6 +60,10 @@ if (typeof jQuery === 'undefined') {
     return false // explicit for ie8 (  ._.)
   }
 
+function goTo()
+{
+    location.href = document.getElementById('link_id').value;
+}
   // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
     var called = false
