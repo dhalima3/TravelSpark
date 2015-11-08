@@ -1,13 +1,7 @@
 /*!
-<<<<<<< HEAD
- * Bootstrap v3.3.5 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under the MIT license
-=======
  * Bootstrap v3.3.2 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  */
 
 if (typeof jQuery === 'undefined') {
@@ -23,11 +17,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
-<<<<<<< HEAD
- * Bootstrap: transition.js v3.3.5
-=======
  * Bootstrap: transition.js v3.3.2
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  * http://getbootstrap.com/javascript/#transitions
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -60,10 +50,6 @@ if (typeof jQuery === 'undefined') {
     return false // explicit for ie8 (  ._.)
   }
 
-function goTo()
-{
-    location.href = document.getElementById('link_id').value;
-}
   // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
     var called = false
@@ -91,11 +77,7 @@ function goTo()
 }(jQuery);
 
 /* ========================================================================
-<<<<<<< HEAD
- * Bootstrap: alert.js v3.3.5
-=======
  * Bootstrap: alert.js v3.3.2
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  * http://getbootstrap.com/javascript/#alerts
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -114,11 +96,7 @@ function goTo()
     $(el).on('click', dismiss, this.close)
   }
 
-<<<<<<< HEAD
-  Alert.VERSION = '3.3.5'
-=======
   Alert.VERSION = '3.3.2'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   Alert.TRANSITION_DURATION = 150
 
@@ -194,11 +172,7 @@ function goTo()
 }(jQuery);
 
 /* ========================================================================
-<<<<<<< HEAD
- * Bootstrap: button.js v3.3.5
-=======
  * Bootstrap: button.js v3.3.2
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  * http://getbootstrap.com/javascript/#buttons
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -218,11 +192,7 @@ function goTo()
     this.isLoading = false
   }
 
-<<<<<<< HEAD
-  Button.VERSION  = '3.3.5'
-=======
   Button.VERSION  = '3.3.2'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   Button.DEFAULTS = {
     loadingText: 'loading...'
@@ -234,11 +204,7 @@ function goTo()
     var val  = $el.is('input') ? 'val' : 'html'
     var data = $el.data()
 
-<<<<<<< HEAD
-    state += 'Text'
-=======
     state = state + 'Text'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     if (data.resetText == null) $el.data('resetText', $el[val]())
 
@@ -263,21 +229,6 @@ function goTo()
     if ($parent.length) {
       var $input = this.$element.find('input')
       if ($input.prop('type') == 'radio') {
-<<<<<<< HEAD
-        if ($input.prop('checked')) changed = false
-        $parent.find('.active').removeClass('active')
-        this.$element.addClass('active')
-      } else if ($input.prop('type') == 'checkbox') {
-        if (($input.prop('checked')) !== this.$element.hasClass('active')) changed = false
-        this.$element.toggleClass('active')
-      }
-      $input.prop('checked', this.$element.hasClass('active'))
-      if (changed) $input.trigger('change')
-    } else {
-      this.$element.attr('aria-pressed', !this.$element.hasClass('active'))
-      this.$element.toggleClass('active')
-    }
-=======
         if ($input.prop('checked') && this.$element.hasClass('active')) changed = false
         else $parent.find('.active').removeClass('active')
       }
@@ -287,7 +238,6 @@ function goTo()
     }
 
     if (changed) this.$element.toggleClass('active')
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
   }
 
 
@@ -330,11 +280,7 @@ function goTo()
       var $btn = $(e.target)
       if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
       Plugin.call($btn, 'toggle')
-<<<<<<< HEAD
-      if (!($(e.target).is('input[type="radio"]') || $(e.target).is('input[type="checkbox"]'))) e.preventDefault()
-=======
       e.preventDefault()
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     })
     .on('focus.bs.button.data-api blur.bs.button.data-api', '[data-toggle^="button"]', function (e) {
       $(e.target).closest('.btn').toggleClass('focus', /^focus(in)?$/.test(e.type))
@@ -343,11 +289,7 @@ function goTo()
 }(jQuery);
 
 /* ========================================================================
-<<<<<<< HEAD
- * Bootstrap: carousel.js v3.3.5
-=======
  * Bootstrap: carousel.js v3.3.2
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  * http://getbootstrap.com/javascript/#carousel
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -365,17 +307,10 @@ function goTo()
     this.$element    = $(element)
     this.$indicators = this.$element.find('.carousel-indicators')
     this.options     = options
-<<<<<<< HEAD
-    this.paused      = null
-    this.sliding     = null
-    this.interval    = null
-    this.$active     = null
-=======
     this.paused      =
     this.sliding     =
     this.interval    =
     this.$active     =
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     this.$items      = null
 
     this.options.keyboard && this.$element.on('keydown.bs.carousel', $.proxy(this.keydown, this))
@@ -385,11 +320,7 @@ function goTo()
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
   }
 
-<<<<<<< HEAD
-  Carousel.VERSION  = '3.3.5'
-=======
   Carousel.VERSION  = '3.3.2'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   Carousel.TRANSITION_DURATION = 600
 
@@ -596,11 +527,7 @@ function goTo()
 }(jQuery);
 
 /* ========================================================================
-<<<<<<< HEAD
- * Bootstrap: collapse.js v3.3.5
-=======
  * Bootstrap: collapse.js v3.3.2
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  * http://getbootstrap.com/javascript/#collapse
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -617,12 +544,7 @@ function goTo()
   var Collapse = function (element, options) {
     this.$element      = $(element)
     this.options       = $.extend({}, Collapse.DEFAULTS, options)
-<<<<<<< HEAD
-    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
-                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
-=======
     this.$trigger      = $(this.options.trigger).filter('[href="#' + element.id + '"], [data-target="#' + element.id + '"]')
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     this.transitioning = null
 
     if (this.options.parent) {
@@ -634,21 +556,13 @@ function goTo()
     if (this.options.toggle) this.toggle()
   }
 
-<<<<<<< HEAD
-  Collapse.VERSION  = '3.3.5'
-=======
   Collapse.VERSION  = '3.3.2'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   Collapse.TRANSITION_DURATION = 350
 
   Collapse.DEFAULTS = {
-<<<<<<< HEAD
-    toggle: true
-=======
     toggle: true,
     trigger: '[data-toggle="collapse"]'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
   }
 
   Collapse.prototype.dimension = function () {
@@ -786,11 +700,7 @@ function goTo()
       var data    = $this.data('bs.collapse')
       var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
-<<<<<<< HEAD
-      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
-=======
       if (!data && options.toggle && option == 'show') options.toggle = false
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
     })
@@ -821,11 +731,7 @@ function goTo()
 
     var $target = getTargetFromTrigger($this)
     var data    = $target.data('bs.collapse')
-<<<<<<< HEAD
-    var option  = data ? 'toggle' : $this.data()
-=======
     var option  = data ? 'toggle' : $.extend({}, $this.data(), { trigger: this })
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     Plugin.call($target, option)
   })
@@ -833,11 +739,7 @@ function goTo()
 }(jQuery);
 
 /* ========================================================================
-<<<<<<< HEAD
- * Bootstrap: dropdown.js v3.3.5
-=======
  * Bootstrap: dropdown.js v3.3.2
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  * http://getbootstrap.com/javascript/#dropdowns
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -857,45 +759,7 @@ function goTo()
     $(element).on('click.bs.dropdown', this.toggle)
   }
 
-<<<<<<< HEAD
-  Dropdown.VERSION = '3.3.5'
-
-  function getParent($this) {
-    var selector = $this.attr('data-target')
-
-    if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
-    }
-
-    var $parent = selector && $(selector)
-
-    return $parent && $parent.length ? $parent : $this.parent()
-  }
-
-  function clearMenus(e) {
-    if (e && e.which === 3) return
-    $(backdrop).remove()
-    $(toggle).each(function () {
-      var $this         = $(this)
-      var $parent       = getParent($this)
-      var relatedTarget = { relatedTarget: this }
-
-      if (!$parent.hasClass('open')) return
-
-      if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return
-
-      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
-
-      if (e.isDefaultPrevented()) return
-
-      $this.attr('aria-expanded', 'false')
-      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
-    })
-  }
-=======
   Dropdown.VERSION = '3.3.2'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   Dropdown.prototype.toggle = function (e) {
     var $this = $(this)
@@ -910,14 +774,7 @@ function goTo()
     if (!isActive) {
       if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
         // if mobile we use a backdrop because click events don't delegate
-<<<<<<< HEAD
-        $(document.createElement('div'))
-          .addClass('dropdown-backdrop')
-          .insertAfter($(this))
-          .on('click', clearMenus)
-=======
         $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
       }
 
       var relatedTarget = { relatedTarget: this }
@@ -950,42 +807,25 @@ function goTo()
     var $parent  = getParent($this)
     var isActive = $parent.hasClass('open')
 
-<<<<<<< HEAD
-    if (!isActive && e.which != 27 || isActive && e.which == 27) {
-=======
     if ((!isActive && e.which != 27) || (isActive && e.which == 27)) {
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
       if (e.which == 27) $parent.find(toggle).trigger('focus')
       return $this.trigger('click')
     }
 
-<<<<<<< HEAD
-    var desc = ' li:not(.disabled):visible a'
-    var $items = $parent.find('.dropdown-menu' + desc)
-=======
     var desc = ' li:not(.divider):visible a'
     var $items = $parent.find('[role="menu"]' + desc + ', [role="listbox"]' + desc)
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     if (!$items.length) return
 
     var index = $items.index(e.target)
 
-<<<<<<< HEAD
-    if (e.which == 38 && index > 0)                 index--         // up
-    if (e.which == 40 && index < $items.length - 1) index++         // down
-    if (!~index)                                    index = 0
-=======
     if (e.which == 38 && index > 0)                 index--                        // up
     if (e.which == 40 && index < $items.length - 1) index++                        // down
     if (!~index)                                      index = 0
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     $items.eq(index).trigger('focus')
   }
 
-<<<<<<< HEAD
-=======
   function clearMenus(e) {
     if (e && e.which === 3) return
     $(backdrop).remove()
@@ -1018,7 +858,6 @@ function goTo()
     return $parent && $parent.length ? $parent : $this.parent()
   }
 
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   // DROPDOWN PLUGIN DEFINITION
   // ==========================
@@ -1056,21 +895,13 @@ function goTo()
     .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
     .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
-<<<<<<< HEAD
-    .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
-=======
     .on('keydown.bs.dropdown.data-api', '[role="menu"]', Dropdown.prototype.keydown)
     .on('keydown.bs.dropdown.data-api', '[role="listbox"]', Dropdown.prototype.keydown)
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
 }(jQuery);
 
 /* ========================================================================
-<<<<<<< HEAD
- * Bootstrap: modal.js v3.3.5
-=======
  * Bootstrap: modal.js v3.3.2
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  * http://getbootstrap.com/javascript/#modals
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -1085,24 +916,12 @@ function goTo()
   // ======================
 
   var Modal = function (element, options) {
-<<<<<<< HEAD
-    this.options             = options
-    this.$body               = $(document.body)
-    this.$element            = $(element)
-    this.$dialog             = this.$element.find('.modal-dialog')
-    this.$backdrop           = null
-    this.isShown             = null
-    this.originalBodyPad     = null
-    this.scrollbarWidth      = 0
-    this.ignoreBackdropClick = false
-=======
     this.options        = options
     this.$body          = $(document.body)
     this.$element       = $(element)
     this.$backdrop      =
     this.isShown        = null
     this.scrollbarWidth = 0
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     if (this.options.remote) {
       this.$element
@@ -1113,11 +932,7 @@ function goTo()
     }
   }
 
-<<<<<<< HEAD
-  Modal.VERSION  = '3.3.5'
-=======
   Modal.VERSION  = '3.3.2'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   Modal.TRANSITION_DURATION = 300
   Modal.BACKDROP_TRANSITION_DURATION = 150
@@ -1151,15 +966,6 @@ function goTo()
 
     this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
 
-<<<<<<< HEAD
-    this.$dialog.on('mousedown.dismiss.bs.modal', function () {
-      that.$element.one('mouseup.dismiss.bs.modal', function (e) {
-        if ($(e.target).is(that.$element)) that.ignoreBackdropClick = true
-      })
-    })
-
-=======
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     this.backdrop(function () {
       var transition = $.support.transition && that.$element.hasClass('fade')
 
@@ -1171,34 +977,23 @@ function goTo()
         .show()
         .scrollTop(0)
 
-<<<<<<< HEAD
-=======
       if (that.options.backdrop) that.adjustBackdrop()
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
       that.adjustDialog()
 
       if (transition) {
         that.$element[0].offsetWidth // force reflow
       }
 
-<<<<<<< HEAD
-      that.$element.addClass('in')
-=======
       that.$element
         .addClass('in')
         .attr('aria-hidden', false)
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
       that.enforceFocus()
 
       var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
 
       transition ?
-<<<<<<< HEAD
-        that.$dialog // wait for modal to slide in
-=======
         that.$element.find('.modal-dialog') // wait for modal to slide in
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
           .one('bsTransitionEnd', function () {
             that.$element.trigger('focus').trigger(e)
           })
@@ -1225,15 +1020,8 @@ function goTo()
 
     this.$element
       .removeClass('in')
-<<<<<<< HEAD
-      .off('click.dismiss.bs.modal')
-      .off('mouseup.dismiss.bs.modal')
-
-    this.$dialog.off('mousedown.dismiss.bs.modal')
-=======
       .attr('aria-hidden', true)
       .off('click.dismiss.bs.modal')
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     $.support.transition && this.$element.hasClass('fade') ?
       this.$element
@@ -1293,22 +1081,6 @@ function goTo()
     if (this.isShown && this.options.backdrop) {
       var doAnimate = $.support.transition && animate
 
-<<<<<<< HEAD
-      this.$backdrop = $(document.createElement('div'))
-        .addClass('modal-backdrop ' + animate)
-        .appendTo(this.$body)
-
-      this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
-        if (this.ignoreBackdropClick) {
-          this.ignoreBackdropClick = false
-          return
-        }
-        if (e.target !== e.currentTarget) return
-        this.options.backdrop == 'static'
-          ? this.$element[0].focus()
-          : this.hide()
-      }, this))
-=======
       this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
         .prependTo(this.$element)
         .on('click.dismiss.bs.modal', $.proxy(function (e) {
@@ -1317,7 +1089,6 @@ function goTo()
             ? this.$element[0].focus.call(this.$element[0])
             : this.hide.call(this)
         }, this))
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
       if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
 
@@ -1352,11 +1123,6 @@ function goTo()
   // these following methods are used to handle overflowing modals
 
   Modal.prototype.handleUpdate = function () {
-<<<<<<< HEAD
-    this.adjustDialog()
-  }
-
-=======
     if (this.options.backdrop) this.adjustBackdrop()
     this.adjustDialog()
   }
@@ -1367,7 +1133,6 @@ function goTo()
       .css('height', this.$element[0].scrollHeight)
   }
 
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
   Modal.prototype.adjustDialog = function () {
     var modalIsOverflowing = this.$element[0].scrollHeight > document.documentElement.clientHeight
 
@@ -1385,34 +1150,17 @@ function goTo()
   }
 
   Modal.prototype.checkScrollbar = function () {
-<<<<<<< HEAD
-    var fullWindowWidth = window.innerWidth
-    if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8
-      var documentElementRect = document.documentElement.getBoundingClientRect()
-      fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)
-    }
-    this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth
-=======
     this.bodyIsOverflowing = document.body.scrollHeight > document.documentElement.clientHeight
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     this.scrollbarWidth = this.measureScrollbar()
   }
 
   Modal.prototype.setScrollbar = function () {
     var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
-<<<<<<< HEAD
-    this.originalBodyPad = document.body.style.paddingRight || ''
-=======
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
   }
 
   Modal.prototype.resetScrollbar = function () {
-<<<<<<< HEAD
-    this.$body.css('padding-right', this.originalBodyPad)
-=======
     this.$body.css('padding-right', '')
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
   }
 
   Modal.prototype.measureScrollbar = function () { // thx walsh
@@ -1478,11 +1226,7 @@ function goTo()
 }(jQuery);
 
 /* ========================================================================
-<<<<<<< HEAD
- * Bootstrap: tooltip.js v3.3.5
-=======
  * Bootstrap: tooltip.js v3.3.2
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  * http://getbootstrap.com/javascript/#tooltip
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ========================================================================
@@ -1498,31 +1242,17 @@ function goTo()
   // ===============================
 
   var Tooltip = function (element, options) {
-<<<<<<< HEAD
-    this.type       = null
-    this.options    = null
-    this.enabled    = null
-    this.timeout    = null
-    this.hoverState = null
-    this.$element   = null
-    this.inState    = null
-=======
     this.type       =
     this.options    =
     this.enabled    =
     this.timeout    =
     this.hoverState =
     this.$element   = null
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     this.init('tooltip', element, options)
   }
 
-<<<<<<< HEAD
-  Tooltip.VERSION  = '3.3.5'
-=======
   Tooltip.VERSION  = '3.3.2'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   Tooltip.TRANSITION_DURATION = 150
 
@@ -1547,16 +1277,7 @@ function goTo()
     this.type      = type
     this.$element  = $(element)
     this.options   = this.getOptions(options)
-<<<<<<< HEAD
-    this.$viewport = this.options.viewport && $($.isFunction(this.options.viewport) ? this.options.viewport.call(this, this.$element) : (this.options.viewport.selector || this.options.viewport))
-    this.inState   = { click: false, hover: false, focus: false }
-
-    if (this.$element[0] instanceof document.constructor && !this.options.selector) {
-      throw new Error('`selector` option must be specified when initializing ' + this.type + ' on the window.document object!')
-    }
-=======
     this.$viewport = this.options.viewport && $(this.options.viewport.selector || this.options.viewport)
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     var triggers = this.options.trigger.split(' ')
 
@@ -1611,31 +1332,16 @@ function goTo()
     var self = obj instanceof this.constructor ?
       obj : $(obj.currentTarget).data('bs.' + this.type)
 
-<<<<<<< HEAD
-=======
     if (self && self.$tip && self.$tip.is(':visible')) {
       self.hoverState = 'in'
       return
     }
 
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     if (!self) {
       self = new this.constructor(obj.currentTarget, this.getDelegateOptions())
       $(obj.currentTarget).data('bs.' + this.type, self)
     }
 
-<<<<<<< HEAD
-    if (obj instanceof $.Event) {
-      self.inState[obj.type == 'focusin' ? 'focus' : 'hover'] = true
-    }
-
-    if (self.tip().hasClass('in') || self.hoverState == 'in') {
-      self.hoverState = 'in'
-      return
-    }
-
-=======
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     clearTimeout(self.timeout)
 
     self.hoverState = 'in'
@@ -1647,17 +1353,6 @@ function goTo()
     }, self.options.delay.show)
   }
 
-<<<<<<< HEAD
-  Tooltip.prototype.isInStateTrue = function () {
-    for (var key in this.inState) {
-      if (this.inState[key]) return true
-    }
-
-    return false
-  }
-
-=======
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
   Tooltip.prototype.leave = function (obj) {
     var self = obj instanceof this.constructor ?
       obj : $(obj.currentTarget).data('bs.' + this.type)
@@ -1667,15 +1362,6 @@ function goTo()
       $(obj.currentTarget).data('bs.' + this.type, self)
     }
 
-<<<<<<< HEAD
-    if (obj instanceof $.Event) {
-      self.inState[obj.type == 'focusout' ? 'focus' : 'hover'] = false
-    }
-
-    if (self.isInStateTrue()) return
-
-=======
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     clearTimeout(self.timeout)
 
     self.hoverState = 'out'
@@ -1722,10 +1408,6 @@ function goTo()
         .data('bs.' + this.type, this)
 
       this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
-<<<<<<< HEAD
-      this.$element.trigger('inserted.bs.' + this.type)
-=======
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
       var pos          = this.getPosition()
       var actualWidth  = $tip[0].offsetWidth
@@ -1733,14 +1415,6 @@ function goTo()
 
       if (autoPlace) {
         var orgPlacement = placement
-<<<<<<< HEAD
-        var viewportDim = this.getPosition(this.$viewport)
-
-        placement = placement == 'bottom' && pos.bottom + actualHeight > viewportDim.bottom ? 'top'    :
-                    placement == 'top'    && pos.top    - actualHeight < viewportDim.top    ? 'bottom' :
-                    placement == 'right'  && pos.right  + actualWidth  > viewportDim.width  ? 'left'   :
-                    placement == 'left'   && pos.left   - actualWidth  < viewportDim.left   ? 'right'  :
-=======
         var $container   = this.options.container ? $(this.options.container) : this.$element.parent()
         var containerDim = this.getPosition($container)
 
@@ -1748,7 +1422,6 @@ function goTo()
                     placement == 'top'    && pos.top    - actualHeight < containerDim.top    ? 'bottom' :
                     placement == 'right'  && pos.right  + actualWidth  > containerDim.width  ? 'left'   :
                     placement == 'left'   && pos.left   - actualWidth  < containerDim.left   ? 'right'  :
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
                     placement
 
         $tip
@@ -1789,13 +1462,8 @@ function goTo()
     if (isNaN(marginTop))  marginTop  = 0
     if (isNaN(marginLeft)) marginLeft = 0
 
-<<<<<<< HEAD
-    offset.top  += marginTop
-    offset.left += marginLeft
-=======
     offset.top  = offset.top  + marginTop
     offset.left = offset.left + marginLeft
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     // $.fn.offset doesn't round pixel values
     // so we use setOffset directly with our own function B-0
@@ -1831,17 +1499,10 @@ function goTo()
     this.replaceArrow(arrowDelta, $tip[0][arrowOffsetPosition], isVertical)
   }
 
-<<<<<<< HEAD
-  Tooltip.prototype.replaceArrow = function (delta, dimension, isVertical) {
-    this.arrow()
-      .css(isVertical ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
-      .css(isVertical ? 'top' : 'left', '')
-=======
   Tooltip.prototype.replaceArrow = function (delta, dimension, isHorizontal) {
     this.arrow()
       .css(isHorizontal ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
       .css(isHorizontal ? 'top' : 'left', '')
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
   }
 
   Tooltip.prototype.setContent = function () {
@@ -1854,11 +1515,7 @@ function goTo()
 
   Tooltip.prototype.hide = function (callback) {
     var that = this
-<<<<<<< HEAD
-    var $tip = $(this.$tip)
-=======
     var $tip = this.tip()
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     var e    = $.Event('hide.bs.' + this.type)
 
     function complete() {
@@ -1875,11 +1532,7 @@ function goTo()
 
     $tip.removeClass('in')
 
-<<<<<<< HEAD
-    $.support.transition && $tip.hasClass('fade') ?
-=======
     $.support.transition && this.$tip.hasClass('fade') ?
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
       $tip
         .one('bsTransitionEnd', complete)
         .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
@@ -1892,11 +1545,7 @@ function goTo()
 
   Tooltip.prototype.fixTitle = function () {
     var $e = this.$element
-<<<<<<< HEAD
-    if ($e.attr('title') || typeof $e.attr('data-original-title') != 'string') {
-=======
     if ($e.attr('title') || typeof ($e.attr('data-original-title')) != 'string') {
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
       $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
     }
   }
@@ -1951,11 +1600,7 @@ function goTo()
       var rightEdgeOffset = pos.left + viewportPadding + actualWidth
       if (leftEdgeOffset < viewportDimensions.left) { // left overflow
         delta.left = viewportDimensions.left - leftEdgeOffset
-<<<<<<< HEAD
-      } else if (rightEdgeOffset > viewportDimensions.right) { // right overflow
-=======
       } else if (rightEdgeOffset > viewportDimensions.width) { // right overflow
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
         delta.left = viewportDimensions.left + viewportDimensions.width - rightEdgeOffset
       }
     }
@@ -1981,17 +1626,7 @@ function goTo()
   }
 
   Tooltip.prototype.tip = function () {
-<<<<<<< HEAD
-    if (!this.$tip) {
-      this.$tip = $(this.options.template)
-      if (this.$tip.length != 1) {
-        throw new Error(this.type + ' `template` option must consist of exactly 1 top-level element!')
-      }
-    }
-    return this.$tip
-=======
     return (this.$tip = this.$tip || $(this.options.template))
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
   }
 
   Tooltip.prototype.arrow = function () {
@@ -2020,17 +1655,7 @@ function goTo()
       }
     }
 
-<<<<<<< HEAD
-    if (e) {
-      self.inState.click = !self.inState.click
-      if (self.isInStateTrue()) self.enter(self)
-      else self.leave(self)
-    } else {
-      self.tip().hasClass('in') ? self.leave(self) : self.enter(self)
-    }
-=======
     self.tip().hasClass('in') ? self.leave(self) : self.enter(self)
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
   }
 
   Tooltip.prototype.destroy = function () {
@@ -2038,15 +1663,6 @@ function goTo()
     clearTimeout(this.timeout)
     this.hide(function () {
       that.$element.off('.' + that.type).removeData('bs.' + that.type)
-<<<<<<< HEAD
-      if (that.$tip) {
-        that.$tip.detach()
-      }
-      that.$tip = null
-      that.$arrow = null
-      that.$viewport = null
-=======
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     })
   }
 
@@ -2060,11 +1676,7 @@ function goTo()
       var data    = $this.data('bs.tooltip')
       var options = typeof option == 'object' && option
 
-<<<<<<< HEAD
-      if (!data && /destroy|hide/.test(option)) return
-=======
       if (!data && option == 'destroy') return
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
       if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))
       if (typeof option == 'string') data[option]()
     })
@@ -2087,11 +1699,7 @@ function goTo()
 }(jQuery);
 
 /* ========================================================================
-<<<<<<< HEAD
- * Bootstrap: popover.js v3.3.5
-=======
  * Bootstrap: popover.js v3.3.2
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  * http://getbootstrap.com/javascript/#popovers
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -2111,11 +1719,7 @@ function goTo()
 
   if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
 
-<<<<<<< HEAD
-  Popover.VERSION  = '3.3.5'
-=======
   Popover.VERSION  = '3.3.2'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
     placement: 'right',
@@ -2171,14 +1775,11 @@ function goTo()
     return (this.$arrow = this.$arrow || this.tip().find('.arrow'))
   }
 
-<<<<<<< HEAD
-=======
   Popover.prototype.tip = function () {
     if (!this.$tip) this.$tip = $(this.options.template)
     return this.$tip
   }
 
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   // POPOVER PLUGIN DEFINITION
   // =========================
@@ -2189,11 +1790,7 @@ function goTo()
       var data    = $this.data('bs.popover')
       var options = typeof option == 'object' && option
 
-<<<<<<< HEAD
-      if (!data && /destroy|hide/.test(option)) return
-=======
       if (!data && option == 'destroy') return
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
       if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
       if (typeof option == 'string') data[option]()
     })
@@ -2216,11 +1813,7 @@ function goTo()
 }(jQuery);
 
 /* ========================================================================
-<<<<<<< HEAD
- * Bootstrap: scrollspy.js v3.3.5
-=======
  * Bootstrap: scrollspy.js v3.3.2
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  * http://getbootstrap.com/javascript/#scrollspy
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -2235,15 +1828,10 @@ function goTo()
   // ==========================
 
   function ScrollSpy(element, options) {
-<<<<<<< HEAD
-    this.$body          = $(document.body)
-    this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
-=======
     var process  = $.proxy(this.process, this)
 
     this.$body          = $('body')
     this.$scrollElement = $(element).is('body') ? $(window) : $(element)
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
     this.selector       = (this.options.target || '') + ' .nav li > a'
     this.offsets        = []
@@ -2251,20 +1839,12 @@ function goTo()
     this.activeTarget   = null
     this.scrollHeight   = 0
 
-<<<<<<< HEAD
-    this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
-=======
     this.$scrollElement.on('scroll.bs.scrollspy', process)
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     this.refresh()
     this.process()
   }
 
-<<<<<<< HEAD
-  ScrollSpy.VERSION  = '3.3.5'
-=======
   ScrollSpy.VERSION  = '3.3.2'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   ScrollSpy.DEFAULTS = {
     offset: 10
@@ -2275,33 +1855,20 @@ function goTo()
   }
 
   ScrollSpy.prototype.refresh = function () {
-<<<<<<< HEAD
-    var that          = this
-    var offsetMethod  = 'offset'
-    var offsetBase    = 0
-
-    this.offsets      = []
-    this.targets      = []
-    this.scrollHeight = this.getScrollHeight()
-=======
     var offsetMethod = 'offset'
     var offsetBase   = 0
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     if (!$.isWindow(this.$scrollElement[0])) {
       offsetMethod = 'position'
       offsetBase   = this.$scrollElement.scrollTop()
     }
 
-<<<<<<< HEAD
-=======
     this.offsets = []
     this.targets = []
     this.scrollHeight = this.getScrollHeight()
 
     var self     = this
 
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     this.$body
       .find(this.selector)
       .map(function () {
@@ -2316,13 +1883,8 @@ function goTo()
       })
       .sort(function (a, b) { return a[0] - b[0] })
       .each(function () {
-<<<<<<< HEAD
-        that.offsets.push(this[0])
-        that.targets.push(this[1])
-=======
         self.offsets.push(this[0])
         self.targets.push(this[1])
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
       })
   }
 
@@ -2351,11 +1913,7 @@ function goTo()
     for (i = offsets.length; i--;) {
       activeTarget != targets[i]
         && scrollTop >= offsets[i]
-<<<<<<< HEAD
-        && (offsets[i + 1] === undefined || scrollTop < offsets[i + 1])
-=======
         && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
         && this.activate(targets[i])
     }
   }
@@ -2366,13 +1924,8 @@ function goTo()
     this.clear()
 
     var selector = this.selector +
-<<<<<<< HEAD
-      '[data-target="' + target + '"],' +
-      this.selector + '[href="' + target + '"]'
-=======
         '[data-target="' + target + '"],' +
         this.selector + '[href="' + target + '"]'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     var active = $(selector)
       .parents('li')
@@ -2436,11 +1989,7 @@ function goTo()
 }(jQuery);
 
 /* ========================================================================
-<<<<<<< HEAD
- * Bootstrap: tab.js v3.3.5
-=======
  * Bootstrap: tab.js v3.3.2
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  * http://getbootstrap.com/javascript/#tabs
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -2455,19 +2004,10 @@ function goTo()
   // ====================
 
   var Tab = function (element) {
-<<<<<<< HEAD
-    // jscs:disable requireDollarBeforejQueryAssignment
-    this.element = $(element)
-    // jscs:enable requireDollarBeforejQueryAssignment
-  }
-
-  Tab.VERSION = '3.3.5'
-=======
     this.element = $(element)
   }
 
   Tab.VERSION = '3.3.2'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   Tab.TRANSITION_DURATION = 150
 
@@ -2515,11 +2055,7 @@ function goTo()
     var $active    = container.find('> .active')
     var transition = callback
       && $.support.transition
-<<<<<<< HEAD
-      && ($active.length && $active.hasClass('fade') || !!container.find('> .fade').length)
-=======
       && (($active.length && $active.hasClass('fade')) || !!container.find('> .fade').length)
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     function next() {
       $active
@@ -2542,11 +2078,7 @@ function goTo()
         element.removeClass('fade')
       }
 
-<<<<<<< HEAD
-      if (element.parent('.dropdown-menu').length) {
-=======
       if (element.parent('.dropdown-menu')) {
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
         element
           .closest('li.dropdown')
             .addClass('active')
@@ -2611,11 +2143,7 @@ function goTo()
 }(jQuery);
 
 /* ========================================================================
-<<<<<<< HEAD
- * Bootstrap: affix.js v3.3.5
-=======
  * Bootstrap: affix.js v3.3.2
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
  * http://getbootstrap.com/javascript/#affix
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -2637,23 +2165,14 @@ function goTo()
       .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
 
     this.$element     = $(element)
-<<<<<<< HEAD
-    this.affixed      = null
-    this.unpin        = null
-=======
     this.affixed      =
     this.unpin        =
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
     this.pinnedOffset = null
 
     this.checkPosition()
   }
 
-<<<<<<< HEAD
-  Affix.VERSION  = '3.3.5'
-=======
   Affix.VERSION  = '3.3.2'
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
   Affix.RESET    = 'affix affix-top affix-bottom'
 
@@ -2703,11 +2222,7 @@ function goTo()
     var offset       = this.options.offset
     var offsetTop    = offset.top
     var offsetBottom = offset.bottom
-<<<<<<< HEAD
-    var scrollHeight = Math.max($(document).height(), $(document.body).height())
-=======
     var scrollHeight = $('body').height()
->>>>>>> eadda521de90d4df8b5785c8314f5c221dd23a4c
 
     if (typeof offset != 'object')         offsetBottom = offsetTop = offset
     if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)

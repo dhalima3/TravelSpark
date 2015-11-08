@@ -9,19 +9,20 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
      <title>WeTravel</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename ='css/bootstrap.min.css') }}"  type="text/css">
 
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/creative.css') }}" media="all" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/bootstrap.css') }}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/transitions.css') }}" media="all" />
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/creative.css') }}" media="all" />
+
   <link rel="stylesheet" href="{{ url_for('static', filename ='font-awesome/css/font-awesome.min.css') }}"  type="text/css">
 
     <!-- Plugin CSS -->
@@ -102,7 +103,7 @@
                 <hr>       
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
    
-            <input name='place' id = 'place1'  placeholder="Find your next vacation..."value=""/>
+            <input name='place' id = 'place2'  placeholder="Find your next vacation..."value=""/>
         <input type="button" value='Search' onClick='findLocation()'></A>
      
         </div>
@@ -115,7 +116,7 @@
                 <hr>       
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
  
-            <input name='place1'  id = 'place1' placeholder="Find your next vacation..."value=""/>
+            <input name='place1'  id = 'place3' placeholder="Find your next vacation..."value=""/>
         <input type="button" value='Search' onClick='findLocation()'></A>
         </div>
       </div>
@@ -128,7 +129,7 @@
                 <hr>       
         <p>Welcome {{user_data["data"]["full_name"]}}</p>
    
-            <input name='place'  id = 'place1' placeholder="Find your next vacation..."value=""/>
+            <input name='place'  id = 'place4' placeholder="Find your next vacation..."value=""/>
         <input type="button" value='Search' onClick='findLocation()'></A>
      
         </div>
@@ -216,7 +217,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="#" class="portfolio-box">
-                        <img src= "{{ url_for('static', filename ='img/header.jpg') }}" class="img-responsive" alt="">
+                        <img src= "{{ url_for('static', filename ='img/portfolio/3.jpg') }}" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -252,10 +253,9 @@
 
     <!-- jQuery -->
     <script src= "{{ url_for('static', filename ='js/jquery.js') }}"></script>
-<span class="highlight"><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script></span
+<span class="highlight"><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script></span>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{ url_for('static', filename ='js/bootstrap.min.js') }}"></script>
 
     <!-- Plugin JavaScript -->
     <script src="{{ url_for('static', filename ='js/jquery.easing.min.js') }}"></script>
@@ -264,12 +264,13 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ url_for('static', filename ='js/creative.js') }}"></script>
-   <!-- <script type="text/javascript">
+    <script type="text/javascript">
     	function findLocation() {
-    		var place = document.getElementById('')
-    		print place; 
+    		console.log("HERE"); 
+    		var place = document.getElementById('place1')
+    		console.log("What?"+place); 
     	}
-    </script>-->
+    </script>
 
 </body>
 
