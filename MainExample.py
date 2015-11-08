@@ -77,10 +77,20 @@ def get_collage(place):
 	#parts.geturl()
 	#print payload
 	response = get_instagram_photos(place)
+        price = "Fares as low as " + str(get_lowest_price(place))
 	print "RECIEVES"
 	print response
-    	return render_template('collage.html', photos_display=response)
+    	return render_template('collage.html', photos_display=response, lowest_price=price)
 
+def get_lowest_price(place):
+    f = open('./jetblue/jetblueresults', 'r')
+    place = place.lower().replace("+", " ")
+    for line in f:
+        lineList = line.split(',')
+        destination = lineList[2].lower()
+        if (destination == place.lower()):
+            return lineList[4]
+        
 '''
 	Will return a list of image URLs from instagram given the name of a location
 '''
