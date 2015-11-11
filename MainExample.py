@@ -86,16 +86,19 @@ def get_collage(place):
 
 	response2= json.loads(get_google_images(place))
 	response3= json.loads(get_google_images2(place))
-        print response2
+	response4 = json.loads(get_tumblr_images(place)) 
+ 
 	print "RECIEVES"
 	print response
 	print "GOOGLE"
 	print response2
+	print "TUMBLR" 
+	print response4
         place = place.replace("+", " ")
         airport = get_airport(place)
         price = "Packages for Jetblue start as low as " + str(get_lowest_price(place)) + ". "
         average_savings = "And save up to " + str(get_savings_percentage(place)) + " compared to Expedia! Wow Jetblue is so awesome!"
-    	return render_template('collage.html', place=place, photos_display=response, photos_google= response2, photos_google2 = response3, lowest_price=price, average_savings=average_savings, airport=airport)
+    	return render_template('collage.html', place=place, photos_display=response, photos_google= response2, photos_tumblr= response4, photos_google2 = response3, lowest_price=price, average_savings=average_savings, airport=airport)
 
 def get_airport(place):
     f = open('./jetblue/jetblueresults', 'r')
@@ -163,7 +166,18 @@ def get_instagram_photos(place):
 	print chosen_images
 
 
-	return chosen_images		
+	return chosen_images	
+
+def get_tumblr_images(place):
+	print "GETTING TUMBLR" 
+	url = ('https://api.tumblr.com/v2/tagged?tag='+urllib2.quote(place)+"&api_key=YaGrzj5NUOlMDxQyTtkSBz1KEAnVyUYcCRKWT74VzNUJwRbtH4")
+	print url 
+	req = urllib2.Request(url, headers={'accept': '*/*'})
+	response = urllib2.urlopen(req)
+	print "TUMBLR"
+	ret = response.read() 
+	print ret 
+	return ret
 
 def get_google_images(place):
     print "MOVING ON TO GOOGLE"
@@ -179,6 +193,8 @@ def get_google_images(place):
     print "RET"
     print ret
     return ret
+
+
 
 def get_google_images2(place):
     print "MOVING ON TO GOOGLE"
