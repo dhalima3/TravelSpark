@@ -74,6 +74,15 @@
     </a>
     {% endfor %}
 
+    <!--This is for tumblr
+    {% for post in photos_tumblr.response[0].photos[0].original_size.url %}
+    <div class="Image_Wrapper" data-caption="Interested?"><a>
+     <a href="#popup" class="portfolio-link" data-toggle="modal">
+     <img src="{{original_size_url}}"></a>
+     <</div>
+    </a>
+    {% endfor %}-->
+
     {% for photo in photos_google.responseData.results%}
     <div class="Image_Wrapper" data-caption="Interested? Click here!"><a>
      <a href="#popup" class="portfolio-link" data-toggle="modal">

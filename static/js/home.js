@@ -3,7 +3,7 @@ flask import Flask
 from flask import json
 
 
-def findLocation() {
+function findLocation() {
 	console.log("HERE"); 
 	var place = document.getElementById('place1')
 	console.log("What?"+jsonify(place)); 
